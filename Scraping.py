@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 url = 'https://timesofindia.indiatimes.com/home/headlines'
 
-def make_soup(url):
+def fetch_soup(url):
     """
     Return a BeautifulSoup object for the given url
     """
@@ -11,7 +11,7 @@ def make_soup(url):
     html = response.content
     return BeautifulSoup(html)
 
-def parse(soup):
+def parse_html(soup):
     """
     Returns a list of tuples (Headline, Article URL)
     """
@@ -27,8 +27,8 @@ def parse(soup):
 
     return headlines
 
-soup = make_soup(url)
-headlines = parse(soup)
+soup = fetch_soup(url)
+headlines = parse_html(soup)
 print(len(headlines))
 print(headlines)
 import pandas as pd
